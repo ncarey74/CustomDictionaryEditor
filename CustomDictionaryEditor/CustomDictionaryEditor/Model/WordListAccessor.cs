@@ -2,18 +2,21 @@
 using System.IO;
 using System.Collections.Generic;
 
-namespace CustomDictionaryEditor.Model.DataAccess
+namespace CustomDictionaryEditor.Model
 {
-    class DictionaryFileAccessor
+    /// <summary>
+    /// Each word list is written in a .dic file, which is a plain text file
+    /// with a single word per line.
+    /// </summary>
+    class WordListAccessor
     {
-        public List<string> OpenFile()
+        public List<string> OpenWordList(string fileName)
         {
             List<string> dictionary = new List<string>();
-            string path = @"C:\Users\Carey\AppData\Roaming\Microsoft\UProof\ExampleDict.dic";
 
-            if (File.Exists(path) == true)
+            if (File.Exists(fileName) == true)
             {
-                using (StreamReader sr = File.OpenText(path))
+                using (StreamReader sr = File.OpenText(fileName))
                 {
                     string s = "";
                     while ((s = sr.ReadLine()) != null)

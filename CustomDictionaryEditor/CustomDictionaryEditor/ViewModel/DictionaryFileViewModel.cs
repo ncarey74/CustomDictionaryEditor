@@ -15,7 +15,7 @@ namespace CustomDictionaryEditor.ViewModel
         /// </summary>
         public DictionaryFileViewModel()
         {
-            DictionaryFileModel f = new DictionaryFileModel();
+            var d = new DictionaryModel();
         }
     }
 }

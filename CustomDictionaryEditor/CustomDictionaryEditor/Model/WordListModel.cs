@@ -4,24 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using CustomDictionaryEditor.Model.DataAccess;
-
 using System.IO;
 
 namespace CustomDictionaryEditor.Model
 {
-    class DictionaryFileModel
+    class WordListModel
     {
         private List<string> _words;
 
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public DictionaryFileModel()
+        public WordListModel(List<string> words)
         {
-            var _fileAccessor = new DictionaryFileAccessor();
-            _words = _fileAccessor.OpenFile();
-
+            _words = words;
             foreach (var word in _words)
             {
                 Console.WriteLine(word);

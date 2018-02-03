@@ -61,8 +61,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\DataAccess\DictionaryFileAccessor.cs" />
-    <Compile Include="Model\DictionaryFileModel.cs" />
+    <Compile Include="Model\DictionaryModel.cs" />
+    <Compile Include="Model\DictionaryAccessor.cs" />
+    <Compile Include="Model\WordListAccessor.cs" />
+    <Compile Include="Model\WordListModel.cs" />
     <Compile Include="ViewModel\DictionaryFileViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
