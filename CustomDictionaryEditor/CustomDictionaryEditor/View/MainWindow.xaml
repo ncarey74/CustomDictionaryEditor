@@ -8,7 +8,9 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0">
-            <DockPanel DockPanel.Dock="Left">
+            <DockPanel 
+                DockPanel.Dock="Left"
+                Width="300">
                 <TextBlock 
                     DockPanel.Dock="Top"
                     FontWeight="Bold"
@@ -17,12 +19,10 @@
                 </TextBlock>
                 <ListBox 
                     DockPanel.Dock="Bottom"
-                    Margin="5,0,5,5">
-                        <ListBoxItem>Example Dictionary Entry 01</ListBoxItem>
-                        <ListBoxItem>Example Dictionary Entry 02</ListBoxItem>
-                        <ListBoxItem>Example Dictionary Entry 03</ListBoxItem>
-                        <ListBoxItem>Example Dictionary Entry 04</ListBoxItem>
-                        <ListBoxItem>Example Dictionary Entry 05</ListBoxItem>
+                    Margin="5,0,5,5"
+                    ItemsSource="{Binding WordLists}"
+                    SelectedItem="{Binding SelectedWordList}"
+                    DisplayMemberPath="WordListName">
                 </ListBox>
             </DockPanel>
             <Grid DockPanel.Dock="Right">

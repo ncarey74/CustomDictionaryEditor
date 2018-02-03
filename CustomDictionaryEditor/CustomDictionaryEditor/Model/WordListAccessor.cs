@@ -12,7 +12,7 @@ namespace CustomDictionaryEditor.Model
     {
         public List<string> OpenWordList(string fileName)
         {
-            List<string> dictionary = new List<string>();
+            List<string> words = new List<string>();
 
             if (File.Exists(fileName) == true)
             {
@@ -21,7 +21,7 @@ namespace CustomDictionaryEditor.Model
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
-                        dictionary.Add(s);
+                        words.Add(s);
                     }
                 }
             }
@@ -30,7 +30,29 @@ namespace CustomDictionaryEditor.Model
                 // Do nothing
             }
 
-            return dictionary;
+            return words;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public string FileName(string fileName)
+        {
+            if (File.Exists(fileName) == true)
+            {
+                const int fileNameIndex = 0;
+            
+                string fileNameWithExtension = Path.GetFileName(fileName);
+                string[] elements = fileNameWithExtension.Split('.');
+
+                return elements[fileNameIndex];
+            }
+            else
+            {
+                return "Not a file!";
+            }
         }
     }
 }

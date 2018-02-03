@@ -26,8 +26,9 @@ namespace CustomDictionaryEditor.Model
                 foreach (var fileName in fileEntries)
                 {
                     List<string> wordList = fileAccessor.OpenWordList(fileName);
-                    var wordListModel = new WordListModel(wordList);
-                    wordLists.Add(wordListModel);
+                    string wordListName = fileAccessor.FileName(fileName);
+
+                    wordLists.Add(new WordListModel(wordListName, wordList));
                 }
             }
             else

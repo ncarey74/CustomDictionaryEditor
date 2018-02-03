@@ -4,16 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CustomDictionaryEditor.Utilities;
+
 namespace CustomDictionaryEditor.Model
 {
-    class DictionaryModel
+    class DictionaryModel : PropertyBase
     {
-        private List<WordListModel> wordLists;
+        #region Properties
+
+        private List<WordListModel> _WordLists;
+        public List<WordListModel> WordLists
+        {
+            get
+            {
+                return _WordLists;
+            }
+            set
+            {
+                if (_WordLists != value)
+                {
+                    _WordLists = value;
+                    RaisePropertyChanged("WordLists");
+                }
+            }
+        }
+
+        #endregion
 
         public DictionaryModel()
         {
             var d = new DictionaryAccessor();
-            wordLists = d.OpenDictionary();
+            _WordLists = d.OpenDictionary();
         }
     }
 }
