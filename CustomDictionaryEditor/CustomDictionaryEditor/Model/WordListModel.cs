@@ -55,8 +55,6 @@ namespace CustomDictionaryEditor.Model
         /// <param name="words"></param>
         public WordListModel(string name, List<string> words)
         {
-            // TODO: Validate that the corresponding file existed by checking
-            // the 'name' parameter.
             _WordListName = name;
             _WordList = words;
         }

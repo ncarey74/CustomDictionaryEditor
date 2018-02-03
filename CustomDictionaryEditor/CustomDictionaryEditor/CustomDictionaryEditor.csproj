@@ -65,6 +65,7 @@
     <Compile Include="Model\DictionaryModel.cs" />
     <Compile Include="Model\DictionaryAccessor.cs" />
     <Compile Include="Model\WordListAccessor.cs" />
+    <Compile Include="Model\WordListElements.cs" />
     <Compile Include="Model\WordListModel.cs" />
     <Compile Include="Utilities\PropertyBase.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />

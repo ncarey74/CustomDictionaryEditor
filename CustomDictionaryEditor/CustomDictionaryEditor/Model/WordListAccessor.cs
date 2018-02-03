@@ -10,48 +10,56 @@ namespace CustomDictionaryEditor.Model
     /// </summary>
     class WordListAccessor
     {
-        public List<string> OpenWordList(string fileName)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public WordListElements OpenWordList(string filePath)
         {
             List<string> words = new List<string>();
 
-            if (File.Exists(fileName) == true)
+            if (File.Exists(filePath) == true)
             {
-                using (StreamReader sr = File.OpenText(fileName))
+                using (StreamReader sr = File.OpenText(filePath))
                 {
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
                         words.Add(s);
                     }
+                    return new WordListElements(true, FileName(filePath), words);
                 }
             }
             else
             {
-                // Do nothing
+                List<string> invalidList = new List<string> { "Invalid word list." };
+                return new WordListElements(false, "Not a file!", invalidList);
             }
-
-            return words;
         }
 
         /// <summary>
+        /// Returns the name of the file, assuming that it is a valid file. 
         /// 
+        /// A valid file is a (1) file that (2) has the 'dic' extension.
         /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
-        public string FileName(string fileName)
+        /// <param name="filePath"></param>
+        /// <returns>File name.</returns>
+        private string FileName(string filePath)
         {
-            if (File.Exists(fileName) == true)
-            {
-                const int fileNameIndex = 0;
-            
-                string fileNameWithExtension = Path.GetFileName(fileName);
-                string[] elements = fileNameWithExtension.Split('.');
+            const int fileNameIndex = 0;
+            const int fileExtensionIndex = 0;
 
+            string fileNameWithExtension = Path.GetFileName(filePath);
+            string[] elements = fileNameWithExtension.Split('.');
+
+            if (elements[fileExtensionIndex] == "dic")
+            {
                 return elements[fileNameIndex];
             }
             else
             {
-                return "Not a file!";
+                return "Invalid file! Must be a .dic file.";
             }
         }
     }

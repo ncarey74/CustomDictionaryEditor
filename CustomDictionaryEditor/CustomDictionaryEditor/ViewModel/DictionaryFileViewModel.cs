@@ -54,6 +54,9 @@ namespace CustomDictionaryEditor.ViewModel
             // WordLists property.
             List<WordListModel> internalWordLists = _dictionary.WordLists;
             internalWordLists.ToList().ForEach(WordLists.Add);
+
+            int a = 0;
+            a++;
         }
     }
 }
