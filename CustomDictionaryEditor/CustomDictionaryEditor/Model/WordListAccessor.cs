@@ -10,6 +10,8 @@ namespace CustomDictionaryEditor.Model
     /// </summary>
     class WordListAccessor
     {
+        private WordListValidity _fileValidity = WordListValidity.Invalid;
+
         /// <summary>
         /// 
         /// </summary>
@@ -28,13 +30,14 @@ namespace CustomDictionaryEditor.Model
                     {
                         words.Add(s);
                     }
-                    return new WordListElements(true, FileName(filePath), words);
+                    string name = FileName(filePath);
+                    return new WordListElements(_fileValidity, name, words);
                 }
             }
             else
             {
                 List<string> invalidList = new List<string> { "Invalid word list." };
-                return new WordListElements(false, "Not a file!", invalidList);
+                return new WordListElements(WordListValidity.Invalid, "Not a file!", invalidList);
             }
         }
 
@@ -48,18 +51,20 @@ namespace CustomDictionaryEditor.Model
         private string FileName(string filePath)
         {
             const int fileNameIndex = 0;
-            const int fileExtensionIndex = 0;
+            const int fileExtensionIndex = 1;
 
             string fileNameWithExtension = Path.GetFileName(filePath);
             string[] elements = fileNameWithExtension.Split('.');
 
             if (elements[fileExtensionIndex] == "dic")
             {
+                _fileValidity = WordListValidity.Valid;
                 return elements[fileNameIndex];
             }
             else
             {
-                return "Invalid file! Must be a .dic file.";
+                _fileValidity = WordListValidity.Invalid;
+                return "Invalid file extension!";
             }
         }
     }

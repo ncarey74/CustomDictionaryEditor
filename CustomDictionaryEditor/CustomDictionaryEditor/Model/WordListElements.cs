@@ -6,21 +6,27 @@ using System.Threading.Tasks;
 
 namespace CustomDictionaryEditor.Model
 {
+    public enum WordListValidity
+    {
+        Invalid = 0,
+        Valid = 1
+    }
+
     class WordListElements
     {
-        bool _isValidWordListFile = false;
-        string _wordListName = "Empty";
-        List<string> _words = null;
+        WordListValidity _isValidWordListFile;
+        string _wordListName;
+        List<string> _words;
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="isValidWordListFile"></param>
+        /// <param name="validity"></param>
         /// <param name="wordListName"></param>
         /// <param name="words"></param>
-        public WordListElements(bool isValidWordListFile, string wordListName, List<string> words)
+        public WordListElements(WordListValidity validity, string wordListName, List<string> words)
         {
-            _isValidWordListFile = isValidWordListFile;
+            _isValidWordListFile = validity;
             _wordListName = wordListName;
             _words = words;
         }
@@ -29,7 +35,7 @@ namespace CustomDictionaryEditor.Model
         /// 
         /// </summary>
         /// <returns></returns>
-        public bool IsValidWordList()
+        public WordListValidity IsValidWordList()
         {
             return _isValidWordListFile;
         }
@@ -40,7 +46,7 @@ namespace CustomDictionaryEditor.Model
         /// <returns></returns>
         public string WordListName()
         {
-            if (_isValidWordListFile == true)
+            if (_isValidWordListFile == WordListValidity.Valid)
             {
                 return _wordListName;
             }
@@ -56,7 +62,7 @@ namespace CustomDictionaryEditor.Model
         /// <returns></returns>
         public List<string> Words()
         {
-            if (_isValidWordListFile == true)
+            if (_isValidWordListFile == WordListValidity.Valid)
             {
                 return _words;
             }

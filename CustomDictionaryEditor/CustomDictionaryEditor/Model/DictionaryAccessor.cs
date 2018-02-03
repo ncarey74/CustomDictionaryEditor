@@ -25,12 +25,12 @@ namespace CustomDictionaryEditor.Model
 
                 foreach (var fileName in fileEntries)
                 {
-                    WordListElements wordListElements = fileAccessor.OpenWordList(fileName);
+                    WordListElements elements = fileAccessor.OpenWordList(fileName);
 
-                    if (wordListElements.IsValidWordList() == true)
+                    if (elements.IsValidWordList() == WordListValidity.Valid)
                     {
-                        wordLists.Add(new WordListModel(wordListElements.WordListName(),
-                                                        wordListElements.Words()));
+                        wordLists.Add(new WordListModel(elements.WordListName(),
+                                                        elements.Words()));
                     }
                     else
                     {
