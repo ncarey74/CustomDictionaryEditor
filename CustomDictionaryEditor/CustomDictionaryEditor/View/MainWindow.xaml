@@ -32,7 +32,6 @@
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <Button 
                     Grid.Row="0"
@@ -40,17 +39,14 @@
                     Edit Word List
                 </Button>
                 <Button
+                    Name="btnAddWordList"
+                    Click="btnAddWordList_Click"
                     Grid.Row="1"
                     Margin="5">
                     New
                 </Button>
                 <Button
                     Grid.Row="2"
-                    Margin="5">
-                    Add
-                </Button>
-                <Button
-                    Grid.Row="3"
                     Margin="5">
                     Remove
                 </Button>

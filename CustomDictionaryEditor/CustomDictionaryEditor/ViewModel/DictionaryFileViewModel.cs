@@ -47,6 +47,20 @@ namespace CustomDictionaryEditor.ViewModel
         // New - create new word list file
         // Add - add new word list file
         // Remove - Soft removal by appending _REMOVED to word list file name.
+
+        public RelayCommand AddWordListCommand { get; set; }
+
+        /// <summary>
+        /// Adds a new word list to the custom dictionary directory.
+        /// 
+        /// New word lists are named, empty text files.
+        /// </summary>
+        /// <param name="parameter"></param>
+        private void AddWordList(object parameter)
+        {
+            // Bring up dialog to type in name.
+        }
+
         #endregion
 
         /// <summary>
