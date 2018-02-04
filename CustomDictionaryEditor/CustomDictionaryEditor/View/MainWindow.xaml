@@ -29,11 +29,10 @@
             </DockPanel>
             <Grid DockPanel.Dock="Right">
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <Button 
                     Grid.Row="0"
@@ -43,20 +42,15 @@
                 <Button
                     Grid.Row="1"
                     Margin="5">
-                    Change Default
+                    New
                 </Button>
                 <Button
                     Grid.Row="2"
                     Margin="5">
-                    New
-                </Button>
-                <Button
-                    Grid.Row="3"
-                    Margin="5">
                     Add
                 </Button>
                 <Button
-                    Grid.Row="4"
+                    Grid.Row="3"
                     Margin="5">
                     Remove
                 </Button>

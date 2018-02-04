@@ -42,6 +42,13 @@ namespace CustomDictionaryEditor.ViewModel
 
         #endregion
 
+        #region Commands
+        // Edit word list - edit selected word list file
+        // New - create new word list file
+        // Add - add new word list file
+        // Remove - Soft removal by appending _REMOVED to word list file name.
+        #endregion
+
         /// <summary>
         /// Default constructor.
         /// </summary>

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CustomDictionaryEditor.Model
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum WordListValidity
     {
         Invalid = 0,
