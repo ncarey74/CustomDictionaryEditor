@@ -31,7 +31,18 @@ namespace CustomDictionaryEditor.Model
 
         #endregion
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public DictionaryModel()
+        {
+            Refresh();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Refresh()
         {
             var d = new DictionaryAccessor();
             _WordLists = d.OpenDictionary();

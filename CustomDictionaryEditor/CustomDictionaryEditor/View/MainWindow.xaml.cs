@@ -24,13 +24,16 @@ namespace CustomDictionaryEditor
    /// </summary>
    public partial class MainWindow : Window
    {
+       DictionaryFileViewModel _viewModel;
+ 
        /// <summary>
        /// 
        /// </summary>
       public MainWindow()
       {
          InitializeComponent();
-         DataContext = new DictionaryFileViewModel();
+         _viewModel = new DictionaryFileViewModel();
+         DataContext = _viewModel;
       }
 
        /// <summary>
@@ -41,9 +44,12 @@ namespace CustomDictionaryEditor
       private void btnAddWordList_Click(object sender, RoutedEventArgs e)
       {
           SaveFileDialog saveFileDialog = new SaveFileDialog();
+          saveFileDialog.Filter = "Microsoft Office User Dictionary (*.dic)|*.dic";
+
           if (saveFileDialog.ShowDialog() == true)
           {
               File.WriteAllText(saveFileDialog.FileName, Environment.NewLine);
+              _viewModel.Refresh();
           }
       }
    }
