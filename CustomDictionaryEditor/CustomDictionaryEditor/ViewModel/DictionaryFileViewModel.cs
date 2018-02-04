@@ -47,6 +47,9 @@ namespace CustomDictionaryEditor.ViewModel
         // New - create new word list file
         // Add - add new word list file
         // Remove - Soft removal by appending _REMOVED to word list file name.
+
+        public RelayCommand AddWordListCommand { get; set; }
+        
         #endregion
 
         /// <summary>
@@ -56,6 +59,14 @@ namespace CustomDictionaryEditor.ViewModel
         {
             WordLists = new ObservableCollection<WordListModel>();
             _dictionary = new DictionaryModel();
+
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            _dictionary.Refresh();
+            WordLists.Clear();
 
             // Add each word list from the internal dictionary to the 
             // WordLists property.
