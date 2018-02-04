@@ -25,9 +25,17 @@ namespace CustomDictionaryEditor.Model
 
                 foreach (var fileName in fileEntries)
                 {
-                    List<string> wordList = fileAccessor.OpenWordList(fileName);
-                    var wordListModel = new WordListModel(wordList);
-                    wordLists.Add(wordListModel);
+                    WordListElements elements = fileAccessor.OpenWordList(fileName);
+
+                    if (elements.IsValidWordList() == WordListValidity.Valid)
+                    {
+                        wordLists.Add(new WordListModel(elements.WordListName(),
+                                                        elements.Words()));
+                    }
+                    else
+                    {
+                        // Do nothing.
+                    }
                 }
             }
             else
